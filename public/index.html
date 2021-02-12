@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1, minimum-scale=1">
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <title>
+    福田公安分局智慧指挥平台
+  </title>
+  <link rel="stylesheet" type="text/css" href="./iconfont.css" rel="external nofollow">
+  
+  <!-- <script src="https://isz-open.sz.gov.cn/lib/jpasc-0.4.0.js" ></script> -->
+  <!-- <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=789c2fc0919b123e7d801c78f9d8c897"></script> -->
+  <!-- <script src="//webapi.amap.com/ui/1.0/main.js"></script> -->
+  <!-- <script src="http://wechatfe.github.io/vconsole/lib/vconsole.min.js?v=3.2.0"></script> -->
+  <!-- <script src="https://unpkg.com/better-scroll/dist/bscroll.min.js"></script> -->
+  <style>
+  
+  </style>
+  <link rel="stylesheet" href="./reset.css">
+</head>
+
+<body>
+  <!-- <script>
+        window.vConsole = new window.VConsole()
+      </script> -->
+  <noscript>
+    <strong>We're sorry but nysq doesn't work properly without JavaScript enabled. Please enable it to
+      continue.</strong>
+  </noscript>
+  <div id="app">
+  </div>
+  <!-- built files will be auto injected -->
+  <script>
+    (function (width) {
+      var doc = width.document,
+        element = doc.documentElement,
+        i = 750,
+        d = i / 100,
+        o = "orientationchange" in width ? "orientationchange" : "resize",
+        a = function () {
+          var width = element.clientWidth || 750;
+          width > 750 && (width = 750);
+          element.style.fontSize = width * 0.16 / d + "px"
+        };
+      doc.addEventListener && (width.addEventListener(o, a, !1), doc.addEventListener("DOMContentLoaded", a, !1))
+    })(window);
+    
+    
+  </script>
+</body>
+
+</html>

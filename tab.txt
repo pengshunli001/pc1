@@ -1,0 +1,29 @@
+import Vue from 'vue';
+import { Tab, Tabs } from 'vant';
+
+Vue.use(Tab);
+Vue.use(Tabs);
+
+
+<van-tabs v-model="active">
+  <van-tab title="标签 1">内容 1</van-tab>
+  <van-tab title="标签 2">内容 2</van-tab>
+  <van-tab title="标签 3">内容 3</van-tab>
+  <van-tab title="标签 4">内容 4</van-tab>
+</van-tabs>
+export default {
+  data() {
+    return {
+      active: 2,
+    };
+  },
+};
+
+
+
+<van-tabs v-model="active">
+  <van-tab v-for="index in 2" :key="index">
+    <template #title> <van-icon name="more-o" />选项 </template>
+    内容 {{ index }}
+  </van-tab>
+</van-tabs>
