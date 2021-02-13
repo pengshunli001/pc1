@@ -9,6 +9,8 @@ import './assets/css/global.css'
 //API
 import api from './api/';
 Vue.prototype.$api = api;
+// import {VueCropper} from 'vue-cropper'
+// Vue.use(VueCropper);
 
 Vue.config.productionTip = false;
 import App from './App.vue';
