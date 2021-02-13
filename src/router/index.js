@@ -46,7 +46,7 @@ let routes = [
         name: 'index',
         component: resolve => require(['../modules/index.vue'], resolve),
         meta: {
-            keepAlive: false,
+            keepAlive: true,
             deepth: 0.1
         }
     },

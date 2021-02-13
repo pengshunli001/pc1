@@ -1,33 +1,51 @@
 <template>
-  <div class="home">
-    <button @click="$router.push('/login')">TOLOGIN</button>
-    <!-- 头部 -->
-    <header1 />
-    <!-- 导航栏 -->
-    <Nav />
-    <!-- grid -->
-    <Grid />
+  <div>
+    <div class="imgWrap">
+      <div v-for="item in imgUrl" :key="item" class="wrap">
+        <upload title="请上传身份证正面" @imgUrlPush="imgUrlPush" />
+      </div>
+    </div>
+    <button @click="submit">提交</button>
   </div>
 </template>
 <script>
-import header1 from './childCompontents/header1'
-import Nav from './childCompontents/nav'
-import Grid from './childCompontents/grid'
+import upload from '../components/upload/upload'
 export default {
-  name: 'index',
   data() {
-    return {}
+    return {
+      imgUrl: [''],
+      idList:[],
+      formData: {},
+    }
   },
   components: {
-    header1,
-    Nav,
-    Grid
+    upload,
+  },
+  methods: {
+    submit() {
+      console.log('点击提交')
+      console.log('formData', this.formData)
+    },
+    imgUrlPush(imgchild, callback) {
+      let {imageUrl,imageId} =imgchild;
+      if (imageUrl) {
+        if (this.imgUrl.indexOf(imageUrl) == -1) {
+          this.imgUrl.push(imageUrl);
+          this.idList.push(imageId);
+          callback(false)
+        } else {
+          callback(true)
+        }
+      }
+    },
   },
 }
 </script>
 <style lang='less' scoped>
-.home{
-  height: 100vh;
-  background: #eee;
+.imgWrap {
+  display: flex;
+  .wrap {
+    margin: 0 10px;
+  }
 }
 </style>
