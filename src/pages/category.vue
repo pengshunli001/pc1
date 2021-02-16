@@ -4,7 +4,7 @@
       <el-breadcrumb separator="/" ref="breadcrumb" class="breadcrumb">
         <el-breadcrumb-item :to="{ path: '/user' }">首页</el-breadcrumb-item>
         <el-breadcrumb-item>商品管理</el-breadcrumb-item>
-        <el-breadcrumb-item>商品分类</el-breadcrumb-item>
+        <el-breadcrumb-item>商品分类1111</el-breadcrumb-item>
       </el-breadcrumb>
     </div>
     <el-card class="box-card" ref="card">
