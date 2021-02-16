@@ -3,7 +3,7 @@
     <div class="breadcrumb">
       <el-breadcrumb separator="/" ref="breadcrumb" class="breadcrumb">
         <el-breadcrumb-item :to="{ path: '/user' }">首页</el-breadcrumb-item>
-        <el-breadcrumb-item>商品管理</el-breadcrumb-item>
+        <el-breadcrumb-item>商品管理1111</el-breadcrumb-item>
         <el-breadcrumb-item>商品分类11111111</el-breadcrumb-item>
       </el-breadcrumb>
     </div>
