@@ -3,6 +3,7 @@ import Vuex from 'vuex';
 import * as getters from './getters';
 import mutations from './mutations';
 import * as actions from './actions';
+import count from './modules/count'
 
 Vue.use(Vuex);
 
@@ -36,7 +37,10 @@ const store = new Vuex.Store({
     state,
     getters,
     mutations,
-    actions
+    actions,
+    modules: {
+    count
+    }
 });
 
 export default store;

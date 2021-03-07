@@ -7,6 +7,7 @@ export default {
     setDept(state, value){
         state.dept = Object.assign(state.dept, value);
     },
+
     clearUserInfo(state) {
         state.userInfos = {
             createTime: "",

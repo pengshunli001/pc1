@@ -1,26 +1,6 @@
 <template>
-  <div id="app" ontouchstart>
-    <van-nav-bar
-      v-if="$store.state.title"
-      :title="$store.state.title"
-      left-text="返回"
-      left-arrow
-      @click-left="onClickLeft"
-    />
-    <div :class="{ 'content-area': $store.state.title }">
-      <transition
-        :name="$store.state.transitionName"
-        mode="out-in"
-        :duration="500"
-      >
-        <keep-alive :include="include">
-          <router-view v-if="$route.meta.keepAlive"></router-view>
-        </keep-alive>
-      </transition>
-      <transition>
-        <router-view v-if="!$route.meta.keepAlive"></router-view>
-      </transition>
-    </div>
+  <div id="app" >
+       <router-view ></router-view>
   </div>
 </template>
 
