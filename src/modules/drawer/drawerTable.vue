@@ -15,7 +15,7 @@
           >从购物车添加</el-tab-pane
         >
         <el-tab-pane label="复用其他业务添加" name="third"
-          >复用其他业务添加</el-tab-pane
+          ><Copy /></el-tab-pane
         >
       </el-tabs>
     </el-drawer>
@@ -24,6 +24,7 @@
 
 <script>
 import EditTable from './editTable'
+import Copy from './copy'
 export default {
   data() {
     return {
@@ -34,6 +35,7 @@ export default {
   },
   components: {
     EditTable,
+    Copy
   },
   methods: {
     handleClose(done) {

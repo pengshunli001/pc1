@@ -191,7 +191,6 @@ export default {
     编辑，获取当前层级及以上树的数据
     */
     editNode(node, data) {
-      this.$refs.addDailog.isShowDialogVisible()
       let currentLevel=data.level;
       this.setCurrentLevel(currentLevel)
       let result = this.getAllParentNode(node)
@@ -200,6 +199,7 @@ export default {
       let cureentData = a.substring(1, a.length)
       this.setCurrentTreeData(cureentData)
       console.log('result:', result[0])
+      this.$refs.addDailog.isShowDialogVisible()
     },
     /*
     删除

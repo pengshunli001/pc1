@@ -19,6 +19,9 @@ export default {
     }
   },
   mutations: {
+    setCommentState(state, value){
+      Object.assign({state,value})
+    },
     setShowEditBtn (state, value) {
       state.treeTable.showEditTable = value;
     },

@@ -1,7 +1,6 @@
 <template>
   <div>
     <el-dialog title="提示" :visible.sync="addDialogVisible" width="30%">
-    
       <el-form
         :model="ruleForm"
         :rules="rules"
@@ -18,11 +17,7 @@
         <el-form-item label="提交人" prop="resource">
           <el-input v-model="ruleForm.resource"></el-input>
         </el-form-item>
-        <el-form-item
-          label="重要信息"
-          prop="region"
-          v-if="currentLevel==3"
-        >
+        <el-form-item label="重要信息" prop="region" v-if="currentLevel == 3">
           <el-select v-model="ruleForm.region" placeholder="请选择活动区域">
             <el-option
               v-for="(item, index) in product3"
@@ -39,7 +34,9 @@
 
       <span slot="footer" class="dialog-footer">
         <el-button @click="addDialogVisible = false">取 消</el-button>
-        <el-button type="primary" @click="submitForm('ruleForm')">提 交</el-button>
+        <el-button type="primary" @click="submitForm('ruleForm')"
+          >提 交</el-button
+        >
       </span>
     </el-dialog>
   </div>
@@ -61,17 +58,17 @@ export default {
       product3: [
         {
           value: '选项1',
-          label: '黄金糕'
-        }, {
+          label: '黄金糕',
+        },
+        {
           value: '选项2',
-          label: '双皮奶'
+          label: '双皮奶',
         },
       ],
       product4: [],
       ruleForm: {
         treeValue: '',
         name: '',
-        region: '',
         date1: '',
         date2: '',
         delivery: false,
@@ -85,7 +82,7 @@ export default {
           { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' },
         ],
         region: [
-          { required: true, message: '请选择活动区域', trigger: 'change' },
+        
         ],
         date1: [
           {
@@ -122,13 +119,13 @@ export default {
     TreeDialog,
   },
   computed: {
-    ...mapState('count', ['currentTreeData','currentLevel','editCurrentTreeData']),
+    ...mapState('count', [
+      'currentTreeData',
+      'currentLevel',
+      'editCurrentTreeData',
+    ]),
   },
-  mounted() {
-    if(this.currentLevel  !=3){
-      this.rules.region =undefined
-      }
-  },
+  mounted() {},
 
   methods: {
     ...mapGetters('count', ['getCurrentTreeData']),
@@ -146,19 +143,27 @@ export default {
       }
     },
     isShowDialogVisible() {
-      this.addDialogVisible = true
       
+      if (this.currentLevel != 3) {
+        this.rules.region = undefined
+      } else {
+        this.rules.region = [
+          { required: true, message: '请选择活动区域', trigger: 'blur' }
+        ]
+      }
+      this.$forceUpdate()
+      this.addDialogVisible = true
     },
-     submitForm(formName) {
-        this.$refs[formName].validate((valid) => {
-          if (valid) {
-            alert('submit!');
-          } else {
-            console.log('error submit!!');
-            return false;
-          }
-        });
-      },
+    submitForm(formName) {
+      this.$refs[formName].validate((valid) => {
+        if (valid) {
+          alert('submit!')
+        } else {
+          console.log('error submit!!')
+          return false
+        }
+      })
+    },
     handleChange() {
       console.log('handleChange', this.dialogValue)
     },

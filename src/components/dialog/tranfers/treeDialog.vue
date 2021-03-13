@@ -1,6 +1,6 @@
 <template>
   <div class="wrap">
-    <el-input v-model="currentTreeData" @focus="focus"></el-input>
+    <el-input v-model="currentTreeData" clearable @focus="focus"></el-input>
     <el-tree
       v-show="showTree"
       class="tree"
@@ -9,11 +9,12 @@
       default-expand-all
       :props="defaultProps"
       @node-click="handleNodeClick"
+ :filter-node-method="filterNode"
     ></el-tree>
   </div>
 </template>
 <script>
-import {mapState, mapMutations } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 export default {
   data() {
     return {
@@ -30,13 +31,28 @@ export default {
   computed: {
     ...mapState('count', ['currentTreeData']),
     ...mapState('count', ['editCurrentTreeData']),
+    currentTreeData:{
+      get(){
+        return this.$store.state.count.currentTreeData;
+      },
+      set(value){
+         this.setCurrentTreeData(value)
+      }
+    }
   },
 
-  mounted() {
-  
+  mounted() {},
+  watch: {
+    currentTreeData(val) {
+      this.$refs.dailogTree.filter(val)
+    },
   },
   methods: {
     ...mapMutations('count', ['setCurrentTreeData']),
+    filterNode(value, data) {
+      if (!value) return true
+      return data.label.indexOf(value) !== -1
+    },
     shoWDialogVisible() {
       this.dialogVisible = true
     },
@@ -49,20 +65,22 @@ export default {
     },
     //只有最后一级可以点击
     handleNodeClick(data, node, self) {
-      if (!data.children) {
-        this.showTree = false
-      } else if (data.children.length == 0) {
-        this.showTree = false
-      }
-      if (this.showTree == false) {
+      // if (!data.children) {
+      //   this.showTree = false
+      // } else if (data.children.length == 0) {
+      //   this.showTree = false
+      // }
+      // if (this.showTree == false) {
         let a = this.getAllParentLable(node)
         let cureentData = a.substring(1, a.length)
-        this.setCurrentTreeData(cureentData)
-      }
+        this.setCurrentTreeData(cureentData);
+          this.showTree = false
+      // }
     },
 
     focus() {
       this.showTree = true
+      console.log("this.editCurrentTreeData:", this.editCurrentTreeData)
     },
   },
 }
