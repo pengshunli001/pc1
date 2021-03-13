@@ -73,6 +73,7 @@
     "less": "^3.9.0",
     "less-loader": "^4.1.0",
     "lib-flexible": "^0.3.2",
+    "lodash": "^4.17.21",
     "object-assign": {
       "integrity": "sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM=",
       "resolved": "https://registry.npmjs.org/object-assign/-/object-assign-4.1.1.tgz",
@@ -169,12 +170,6 @@
       "integrity": "sha512-kVscqXk4OCp68SZ0dkgEKVi6/8ij300KBWTJq32P/dYeWTSwK41WyTxalN1eRmA5Z9UU/LX9D7FWSmV9SAYx6g==",
       "resolved": "https://registry.npmjs.org/esutils/-/esutils-2.0.3.tgz",
       "version": "2.0.3"
-    },
-    "lodash": {
-      "dev": true,
-      "integrity": "sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==",
-      "resolved": "https://registry.npmjs.org/lodash/-/lodash-4.17.15.tgz",
-      "version": "4.17.15"
     },
     "postcss-pxtorem": "^4.0.1",
     "px2rem-loader": "^0.1.9",

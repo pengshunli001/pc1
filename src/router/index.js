@@ -5,8 +5,13 @@ let routes = [
     {
         path: '/login',
         name: 'Login',
-        component: resolve => require(['../modules/login.vue'], resolve),
-        redirect: "/user",
+        component: resolve => require(['../modules/login.vue'], resolve)
+      
+    },
+    {
+        path: '/home',
+        name: 'home',
+        component: resolve => require(['../modules/home.vue'], resolve),
         children: [
             //用户列表
             {
@@ -39,12 +44,7 @@ let routes = [
                 component: resolve => require(['../pages/category.vue'], resolve),
             },
            
-        ]
-    },
-    {
-        path: '/index',
-        name: 'index',
-        component: resolve => require(['../modules/index.vue'], resolve),
+        ],
         meta: {
             keepAlive: true,
             deepth: 0.1
@@ -52,17 +52,19 @@ let routes = [
     },
     {
         path: '/',
-        redirect: '/index',
+        redirect: '/home',
 
     },
 
 
 ];
 routes = routes
-    .concat([{  //通配符路由,放在最后面
-        path: '*',
-        redirect: '/login' //等会是空的
-    }]);
+    .concat([
+    //     {  //通配符路由,放在最后面
+    //     path: '*',
+    //     redirect: '/category' //等会是空的
+    // }
+]);
 
 export default new VueRouter({
     //mode:'history',
